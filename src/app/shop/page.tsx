@@ -36,7 +36,7 @@ export default function ShopPage() {
         </section>
         <Products />
       </main>
-      <Footer variant="compact" />
+      <Footer />
     </>
   );
 }

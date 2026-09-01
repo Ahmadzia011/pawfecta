@@ -61,6 +61,8 @@ export default function About() {
               <Image
                 src={HOMEPAGE_IMAGES.aboutCompanions.src}
                 alt={HOMEPAGE_IMAGES.aboutCompanions.alt}
+                width={1796}
+                height={876}
                 sizes="(min-width: 1024px) 42vw, 100vw"
                 className="h-[320px] w-full object-cover md:h-[360px]"
               />

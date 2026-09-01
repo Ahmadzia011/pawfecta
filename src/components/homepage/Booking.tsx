@@ -80,7 +80,7 @@ export default function Booking() {
                 </button>
 
                 <a
-                  href="#products"
+                  href="/shop"
                   className="flex h-[50px] w-full items-center justify-center rounded-full bg-white/60 text-sm font-semibold text-[#1d1d1f] transition-[color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-white"
                 >
                   Shop all products

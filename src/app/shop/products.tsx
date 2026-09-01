@@ -27,7 +27,7 @@ export default function Products() {
                   src={product.image}
                   alt={product.alt}
                   fill
-                  placeholder="blur"
+                  loading="eager"
                   sizes="(min-width: 1280px) 424px, (min-width: 1024px) 32vw, (min-width: 640px) 50vw, 100vw"
                   className="object-contain p-8 transition-transform duration-700 ease-out group-hover:scale-[1.035] md:p-10 lg:p-12"
                 />

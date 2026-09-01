@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
-import { HOMEPAGE_FEATURED_PRODUCTS } from "../../constants/homepage.constants";
+import { FEATURED_PRODUCTS } from "../../constants/shop.constants";
 import { Reveal } from "../motion/Reveal";
 import SectionIntro from "./SectionIntro";
 
@@ -19,7 +19,7 @@ export default function FeaturedProducts() {
 
           <Reveal delay={0.22} distance={14} scale={0.98}>
             <a
-              href="#shop"
+              href="/shop"
               className="group inline-flex h-11 shrink-0 items-center gap-2 rounded-full border border-[#8e4521]/20 px-5 text-sm font-medium text-[#8e4521] transition-colors hover:border-[#8e4521]/40 hover:bg-[#fff8f4] md:mb-1"
             >
               See all products
@@ -32,7 +32,7 @@ export default function FeaturedProducts() {
         </div>
 
         <div className="mt-12 grid gap-8 md:mt-16 md:grid-cols-3 md:gap-5 lg:gap-7">
-          {HOMEPAGE_FEATURED_PRODUCTS.map((product, index) => (
+          {FEATURED_PRODUCTS.map((product, index) => (
             <Reveal
               as="article"
               key={product.name}
@@ -42,14 +42,14 @@ export default function FeaturedProducts() {
               hoverLift
               className="group"
             >
-              <a href="#shop" aria-label={`Shop ${product.name}`}>
+              <a href="/shop" aria-label={`Shop ${product.name}`}>
                 <div className="relative aspect-square overflow-hidden rounded-[28px] border border-[#8e4521]/8 bg-[#fff8f4] md:rounded-[32px]">
                   <Image
-                    src={product.image}
-                    alt={product.alt}
-                    fill
-                    placeholder="blur"
-                    sizes="(min-width: 1280px) 430px, (min-width: 768px) 32vw, 100vw"
+                  loading="eager"
+                  src={product.image}
+                  alt={product.alt}
+                  fill
+                  sizes="(min-width: 1280px) 430px, (min-width: 768px) 32vw, 100vw"
                     className="object-contain p-10 transition-transform duration-700 ease-out group-hover:scale-[1.035] md:p-8 lg:p-12"
                   />
                 </div>

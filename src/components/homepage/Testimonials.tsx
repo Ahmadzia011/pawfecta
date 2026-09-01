@@ -29,6 +29,8 @@ export default function Testimonials() {
             <Image
               src={HOMEPAGE_IMAGES.testimonials.src}
               alt={HOMEPAGE_IMAGES.testimonials.alt}
+              width={1122}
+              height={1402}
               sizes="(min-width: 1024px) 58vw, 100vw"
               className="h-[480px] w-full rounded-3xl object-cover sm:h-[560px] lg:h-[680px]"
             />
@@ -72,6 +74,8 @@ export default function Testimonials() {
                           <Image
                             src={review.image}
                             alt={`${review.petName}, ${review.name}'s pet`}
+                            width={1254}
+                            height={1254}
                             sizes="50px"
                             className="size-[50px] shrink-0 rounded-full object-cover"
                           />

@@ -1,68 +1,9 @@
 import Image from "next/image";
 import { HOMEPAGE_IMAGES } from "../../constants/homepage.constants";
+import { SITE_CONTACT } from "../../constants/site.constants";
 import { Reveal } from "../motion/Reveal";
 
-type FooterProps = {
-  variant?: "default" | "compact";
-};
-
-export default function Footer({ variant = "default" }: FooterProps) {
-  if (variant === "compact") {
-    return (
-      <footer className="relative w-full overflow-hidden rounded-t-[32px] bg-[#8e4521] text-white md:rounded-t-[40px]">
-        <div className="page-container py-10 md:py-14">
-          <Reveal distance={20} scale={0.96}>
-            <div className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-              <p
-                aria-label="pawfecta"
-                className="text-[clamp(4rem,10vw,8rem)] font-black leading-[0.78] tracking-[-0.07em] text-[#f8e5d7]"
-              >
-                pawfecta
-              </p>
-              <p className="max-w-[320px] text-[15px] font-light leading-6 text-[#f8e5d7]/75 md:text-right">
-                Thoughtfully chosen essentials for happier pets and easier
-                everyday routines.
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-8 border-t border-white/15 pt-8 md:mt-12 md:grid-cols-[1fr_1fr_auto] md:gap-12">
-            <Reveal direction="right" distance={18} delay={0.06} scale={0.98}>
-              <div>
-                <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-[#f8e5d7]/55">
-                  Contact
-                </p>
-                <a
-                  href="mailto:hello@pawfecta.com"
-                  className="mt-3 block text-[17px] font-light transition-opacity hover:opacity-70"
-                >
-                  hello@pawfecta.com
-                </a>
-              </div>
-            </Reveal>
-
-            <Reveal distance={18} delay={0.1} scale={0.98}>
-              <div>
-                <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-[#f8e5d7]/55">
-                  Delivery
-                </p>
-                <p className="mt-3 text-[17px] font-light">
-                  Free standard delivery over $75
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal direction="left" distance={18} delay={0.14} scale={0.98}>
-              <p className="text-[13px] text-[#f8e5d7]/65 md:self-end md:text-right">
-                © 2026 Pawfecta
-              </p>
-            </Reveal>
-          </div>
-        </div>
-      </footer>
-    );
-  }
-
+export default function Footer() {
   return (
     <footer className="relative w-full overflow-hidden rounded-t-[40px] bg-[#8e4521] text-white md:rounded-t-[48px]">
       <div className="page-container relative pb-8 pt-40 md:min-h-[707px] md:pt-64">
@@ -84,8 +25,10 @@ export default function Footer({ variant = "default" }: FooterProps) {
             <Image
               src={HOMEPAGE_IMAGES.petCutout.src}
               alt=""
+              width={1024}
+              height={1536}
               sizes="1127px"
-              className="absolute left-[-69.39%] top-0 h-full max-w-none object-contain "
+              className="absolute left-[-69.39%] top-0 h-full w-auto max-w-none object-contain"
             />
           </Reveal>
         </div>
@@ -96,6 +39,8 @@ export default function Footer({ variant = "default" }: FooterProps) {
             <Image
               src={HOMEPAGE_IMAGES.petCutout.src}
               alt=""
+              width={1024}
+              height={1536}
               sizes="330px"
               className="h-[330px] w-auto object-contain"
             />
@@ -105,23 +50,26 @@ export default function Footer({ variant = "default" }: FooterProps) {
         <div className="relative z-20 grid gap-10 pb-8 pt-64 md:grid-cols-2 md:gap-0 md:pt-[200px]">
           <Reveal direction="right" distance={24} delay={0.08} scale={0.97}>
             <div>
-              <h3 className="text-[24px] font-medium leading-[31px]">
+              <a
+                href="/contact"
+                className="text-[24px] font-medium leading-[31px] transition-opacity hover:opacity-75"
+              >
                 Contact us
-              </h3>
+              </a>
 
               <div className="mt-3 space-y-[7px] font-light text-[#f3f6f1]">
                 <a
-                  href="mailto:hello@pawfecta.com"
+                  href={`mailto:${SITE_CONTACT.email}`}
                   className="block text-[18px] leading-[25px] transition-opacity hover:opacity-70"
                 >
-                  hello@pawfecta.com
+                  {SITE_CONTACT.email}
                 </a>
 
                 <a
-                  href="tel:+15551234567"
+                  href={`tel:${SITE_CONTACT.phoneHref}`}
                   className="block text-[16px] leading-[25px] transition-opacity hover:opacity-70"
                 >
-                  +1 (555) 123-4567
+                  {SITE_CONTACT.phone}
                 </a>
               </div>
             </div>

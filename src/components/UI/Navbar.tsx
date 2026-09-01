@@ -2,18 +2,22 @@
 
 import { ArrowUpRight, Menu, PawPrint, ShoppingBag, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useEffect, useState } from "react";
-import { HOMEPAGE_NAV_LINKS } from "../../constants/homepage.constants";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { PREMIUM_EASE } from "../../constants/motion.constants";
+import { SITE_NAV_LINKS } from "../../constants/site.constants";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState("home");
+  const pathname = usePathname();
   const shouldReduceMotion = useReducedMotion();
 
-
-
   const closeMenu = () => setOpen(false);
+  const isActiveLink = (href: string) =>
+    href === "/"
+      ? pathname === "/"
+      : !href.includes("#") && pathname.startsWith(href);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50 px-4 pt-4 md:px-8 md:pt-5">
@@ -21,13 +25,11 @@ export default function Navbar() {
         initial={shouldReduceMotion ? false : { opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, ease: PREMIUM_EASE }}
-        className={`relative mx-auto max-w-360 rounded-[22px] border transition-[background-color,border-color,box-shadow] duration-500 ${
-            "border-white/55 bg-white/68 shadow-[0_10px_35px_rgba(73,33,16,0.07)] backdrop-blur-xl"
-        }`}
+        className="relative mx-auto max-w-360 rounded-[22px] border border-white/55 bg-white/68 shadow-[0_10px_35px_rgba(73,33,16,0.07)] backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-500"
       >
         <div className="flex h-20 items-center justify-between px-3 pl-4 md:px-4 md:pl-5">
-          <a
-            href="#home"
+          <Link
+            href="/"
             onClick={closeMenu}
             className="group flex items-center gap-2.5 rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8e4521]"
             aria-label="Pawfecta home"
@@ -38,17 +40,17 @@ export default function Navbar() {
             <span className="text-[25px] font-black leading-none tracking-[-0.055em] text-[#8e4521]">
               pawfecta
             </span>
-          </a>
+          </Link>
 
           <nav
             aria-label="Primary navigation"
             className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 items-center gap-1 rounded-full border border-[#8e4521]/8 bg-[#fff8f4]/65 p-1 lg:flex"
           >
-            {HOMEPAGE_NAV_LINKS.map(([label, href]) => {
-              const isActive = activeSection === href.slice(1);
+            {SITE_NAV_LINKS.map(([label, href]) => {
+              const isActive = isActiveLink(href);
 
               return (
-                <a
+                <Link
                   key={label}
                   href={href}
                   aria-current={isActive ? "page" : undefined}
@@ -59,24 +61,24 @@ export default function Navbar() {
                   }`}
                 >
                   {label}
-                </a>
+                </Link>
               );
             })}
           </nav>
 
           <div className="flex items-center gap-2">
-            <a
-              href="#shop"
+            <Link
+              href="/shop"
               className="group hidden h-11 items-center gap-2.5 rounded-full bg-[#8e4521] pl-4 pr-2 text-[13px] font-medium text-white shadow-[0_10px_24px_rgba(91,43,21,0.2)] transition-colors hover:bg-[#733616] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#8e4521] sm:flex"
             >
-              Find your fit
+              Shop now
               <span className="flex size-7 items-center justify-center rounded-full bg-white/12">
                 <ArrowUpRight
                   size={14}
                   className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </span>
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -104,44 +106,47 @@ export default function Navbar() {
             >
               <div className="mx-3 border-t border-[#8e4521]/10 px-1 pb-4 pt-3">
                 <div className="grid gap-1 sm:grid-cols-2">
-                  {HOMEPAGE_NAV_LINKS.map(([label, href], index) => {
-                    const isActive = activeSection === href.slice(1);
+                  {SITE_NAV_LINKS.map(([label, href], index) => {
+                    const isActive = isActiveLink(href);
 
                     return (
-                      <motion.a
+                      <motion.div
                         key={label}
-                        href={href}
-                        onClick={closeMenu}
-                        aria-current={isActive ? "page" : undefined}
                         initial={
                           shouldReduceMotion ? false : { opacity: 0, x: -8 }
                         }
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.035 }}
-                        className={`flex items-center justify-between rounded-2xl px-4 py-3 text-[15px] font-medium transition-colors ${
-                          isActive
-                            ? "bg-[#f8e5d7] text-[#8e4521]"
-                            : "text-[#5f3927] hover:bg-[#f8e5d7]/75"
-                        }`}
                       >
-                        {label}
-                        <ArrowUpRight
-                          size={14}
-                          className="text-[#8e4521]/55"
-                        />
-                      </motion.a>
+                        <Link
+                          href={href}
+                          onClick={closeMenu}
+                          aria-current={isActive ? "page" : undefined}
+                          className={`flex items-center justify-between rounded-2xl px-4 py-3 text-[15px] font-medium transition-colors ${
+                            isActive
+                              ? "bg-[#f8e5d7] text-[#8e4521]"
+                              : "text-[#5f3927] hover:bg-[#f8e5d7]/75"
+                          }`}
+                        >
+                          {label}
+                          <ArrowUpRight
+                            size={14}
+                            className="text-[#8e4521]/55"
+                          />
+                        </Link>
+                      </motion.div>
                     );
                   })}
                 </div>
 
-                <a
-                  href="#products"
+                <Link
+                  href="/shop"
                   onClick={closeMenu}
                   className="mt-3 flex h-12 items-center justify-center gap-2 rounded-full bg-[#8e4521] text-sm font-medium text-white sm:hidden"
                 >
                   <ShoppingBag size={16} />
                   Shop the collection
-                </a>
+                </Link>
               </div>
             </motion.nav>
           )}

@@ -1,65 +1,32 @@
 import { PackageCheck, ShoppingBag, Truck } from "lucide-react";
-import aboutCat from "../../public/images/pawfecta/about-cat.webp";
-import aboutCompanions from "../../public/images/pawfecta/about-companions.webp";
-import lunaImage from "../../public/images/pawfecta/avatar-luna.webp";
-import miloImage from "../../public/images/pawfecta/avatar-milo.webp";
-import teddyImage from "../../public/images/pawfecta/avatar-teddy.webp";
-import groomingCatImage from "../../public/images/pawfecta/category-grooming-cat.webp";
-import wellnessCatImage from "../../public/images/pawfecta/category-wellness-cat.webp";
-import bookingDogPremium from "../../public/images/pawfecta/booking-dog-premium.webp";
-import heroCatCutout from "../../public/images/pawfecta/hero-cat-cutout.webp";
-import petCutout from "../../public/images/pawfecta/pet-cutout.webp";
-import bathImage from "../../public/images/pawfecta/category-bath-golden-retriever.webp";
-import sensitiveImage from "../../public/images/pawfecta/service-sensitive.webp";
-import dalmatianImage from "../../public/images/pawfecta/testimonials-dalmatian.webp";
-import cloudComfortBedImage from "../../public/products/cloud-comfort-bed.webp";
-import dailyCoatBrushImage from "../../public/products/daily-coat-brush.webp";
-import softPawCleanserImage from "../../public/products/soft-paw-cleanser.webp";
+import { HOMEPAGE_MEDIA } from "./media.constants";
 
 export const HOMEPAGE_IMAGES = {
   booking: {
-    src: bookingDogPremium,
+    src: HOMEPAGE_MEDIA.bookingDogPremium,
     alt: "Happy apricot cockapoo sitting attentively",
   },
   hero: {
-    src: heroCatCutout,
-    alt: "Calm cream-and-ginger cat sitting attentively",
+    src: HOMEPAGE_MEDIA.heroCompanionsPremium,
+    alt: "Apricot cockapoo and cream-and-ginger cat sitting together",
   },
   aboutCat: {
-    src: aboutCat,
+    src: HOMEPAGE_MEDIA.aboutCat,
     alt: "Calm cream-and-ginger cat in a warm pet wellness room",
   },
   aboutCompanions: {
-    src: aboutCompanions,
+    src: HOMEPAGE_MEDIA.aboutCompanions,
     alt: "Golden retriever and grey cat relaxing together",
   },
   petCutout: {
-    src: petCutout,
+    src: HOMEPAGE_MEDIA.petCutout,
     alt: "Cheerful freshly groomed apricot cockapoo",
   },
   testimonials: {
-    src: dalmatianImage,
+    src: HOMEPAGE_MEDIA.testimonialsDalmatian,
     alt: "Calm Dalmatian resting in a warm pet wellness studio",
   },
 } as const;
-
-export const HOMEPAGE_NAV_LINKS = [
-  ["Home", "#home"],
-  ["About", "#about"],
-  ["Products", "#products"],
-  ["Bundles", "#bundles"],
-  ["FAQ", "#faq"],
-] as const;
-
-export const HOMEPAGE_TRUSTED_STARS = [1, 2, 3, 4, 5] as const;
-
-export const HOMEPAGE_TRUSTED_BRANDS = [
-  "PetCare",
-  "Happy Paws",
-  "VetLife",
-  "PetHome",
-  "GoodCare",
-] as const;
 
 export const HOMEPAGE_METRICS = [
   [
@@ -84,53 +51,29 @@ export const HOMEPAGE_PRODUCT_CATEGORIES = [
     title: "Bath & Coat Care",
     copy: "Gentle grooming essentials designed to keep coats clean, soft, comfortable, and beautifully cared for.",
     items: ["Shampoos", "Brushes", "Coat Care"],
-    image: wellnessCatImage,
+    image: HOMEPAGE_MEDIA.categoryWellnessCat,
     alt: "Freshly bathed golden retriever in a warm pet-care room",
   },
   {
     title: "Grooming Essentials",
     copy: "Comfortable, easy-to-use tools for keeping paws, faces, and coats neat between professional grooms.",
     items: ["Trimmers", "Combs", "Paw Care"],
-    image: bathImage,
+    image: HOMEPAGE_MEDIA.categoryBathGoldenRetriever,
     alt: "Happy cream cat relaxing beside wooden grooming tools",
   },
   {
     title: "Everyday Wellness",
     copy: "Useful favorites for feeding, play, enrichment, and the little rituals that support a joyful daily routine.",
     items: ["Smart Toys", "Feeding", "Daily Care"],
-    image: groomingCatImage,
+    image: HOMEPAGE_MEDIA.categoryGroomingCat,
     alt: "Playful silver tabby cat enjoying enrichment toys",
   },
   {
     title: "Comfort for Every Age",
     copy: "Cozy, calming essentials made to support restful moments, sensitive pets, and senior companions.",
     items: ["Cozy Beds", "Calming Care", "Senior Support"],
-    image: sensitiveImage,
+    image: HOMEPAGE_MEDIA.serviceSensitive,
     alt: "Senior golden retriever resting on a comfortable pet bed",
-  },
-] as const;
-
-export const HOMEPAGE_FEATURED_PRODUCTS = [
-  {
-    name: "Daily Coat Brush",
-    category: "Grooming",
-    price: "$24",
-    image: dailyCoatBrushImage,
-    alt: "Natural beechwood pet coat brush with dense soft bristles",
-  },
-  {
-    name: "Soft Paw Cleanser",
-    category: "Daily care",
-    price: "$18",
-    image: softPawCleanserImage,
-    alt: "Ivory paw cleanser bottle with a warm brown pump",
-  },
-  {
-    name: "Cloud Comfort Bed",
-    category: "Comfort",
-    price: "$64",
-    image: cloudComfortBedImage,
-    alt: "Plush oatmeal boucle pet bed with a cushioned center",
   },
 ] as const;
 
@@ -208,7 +151,7 @@ export const HOMEPAGE_TESTIMONIALS = [
     name: "Daniel Carter",
     pet: "Pet parent to Milo",
     petName: "Milo",
-    image: miloImage,
+    image: HOMEPAGE_MEDIA.avatarMilo,
   },
   {
     quote:
@@ -216,7 +159,7 @@ export const HOMEPAGE_TESTIMONIALS = [
     name: "Olivia Harris",
     pet: "Pet parent to Teddy",
     petName: "Teddy",
-    image: teddyImage,
+    image: HOMEPAGE_MEDIA.avatarTeddy,
   },
   {
     quote:
@@ -224,7 +167,7 @@ export const HOMEPAGE_TESTIMONIALS = [
     name: "Sophie Miller",
     pet: "Pet parent to Luna",
     petName: "Luna",
-    image: lunaImage,
+    image: HOMEPAGE_MEDIA.avatarLuna,
   },
 ] as const;
 

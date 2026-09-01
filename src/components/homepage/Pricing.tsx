@@ -21,7 +21,7 @@ export default function Pricing() {
 
           <Reveal delay={0.22} distance={14} scale={0.98}>
             <a
-              href="#shop"
+              href="/shop"
               className="group inline-flex h-11 shrink-0 items-center gap-2 rounded-full border border-[#8e4521]/20 px-5 text-sm font-medium text-[#8e4521] transition-colors hover:border-[#8e4521]/40 hover:bg-[#fff8f4] md:mb-1"
             >
               See all bundles
@@ -73,7 +73,7 @@ export default function Pricing() {
                   </p>
 
                   <a
-                    href="#shop"
+                    href="/shop"
                     className={`mt-4 flex h-[43px] w-full items-center justify-center rounded-full text-[15px] transition-colors ${
                       featured
                         ? "bg-[#f8e5d7] text-[#9f4219] hover:bg-white"
