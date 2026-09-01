@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { HOMEPAGE_IMAGES } from "../../constants/homepage.constants";
 import { SITE_CONTACT } from "../../constants/site.constants";
 import { Reveal } from "../motion/Reveal";
@@ -28,7 +29,7 @@ export default function Footer() {
               width={1024}
               height={1536}
               sizes="1127px"
-              className="absolute left-[-69.39%] top-0 h-full w-auto max-w-none object-contain"
+              className="absolute left-[-40%] top-0 h-full w-auto max-w-none object-contain"
             />
           </Reveal>
         </div>
@@ -50,12 +51,12 @@ export default function Footer() {
         <div className="relative z-20 grid gap-10 pb-8 pt-64 md:grid-cols-2 md:gap-0 md:pt-[200px]">
           <Reveal direction="right" distance={24} delay={0.08} scale={0.97}>
             <div>
-              <a
+              <Link
                 href="/contact"
                 className="text-[24px] font-medium leading-[31px] transition-opacity hover:opacity-75"
               >
                 Contact us
-              </a>
+              </Link>
 
               <div className="mt-3 space-y-[7px] font-light text-[#f3f6f1]">
                 <a

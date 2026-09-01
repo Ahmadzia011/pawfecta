@@ -2,37 +2,23 @@
 
 import { useEffect } from "react";
 import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
-export default function LenisScroll({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function LenisScroll() {
   useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return;
-    }
-
     const lenis = new Lenis({
-      duration: 1.1,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      autoRaf: true,
       smoothWheel: true,
+      anchors: true,
+      lerp: 0.075,
+      wheelMultiplier: 0.75,
+      touchMultiplier: 1,
     });
 
-    let frameId = 0;
-
-    function raf(time: number) {
-      lenis.raf(time);
-      frameId = requestAnimationFrame(raf);
-    }
-
-    frameId = requestAnimationFrame(raf);
-
     return () => {
-      cancelAnimationFrame(frameId);
       lenis.destroy();
     };
   }, []);
 
-  return <>{children}</>;
+  return null;
 }

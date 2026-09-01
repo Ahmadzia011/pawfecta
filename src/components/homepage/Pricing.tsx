@@ -1,4 +1,5 @@
 import { ArrowUpRight, Check } from "lucide-react";
+import Link from "next/link";
 import SectionIntro from "./SectionIntro";
 import { HOMEPAGE_PRODUCT_BUNDLES } from "../../constants/homepage.constants";
 import { Reveal } from "../motion/Reveal";
@@ -20,7 +21,7 @@ export default function Pricing() {
           />
 
           <Reveal delay={0.22} distance={14} scale={0.98}>
-            <a
+            <Link
               href="/shop"
               className="group inline-flex h-11 shrink-0 items-center gap-2 rounded-full border border-[#8e4521]/20 px-5 text-sm font-medium text-[#8e4521] transition-colors hover:border-[#8e4521]/40 hover:bg-[#fff8f4] md:mb-1"
             >
@@ -29,7 +30,7 @@ export default function Pricing() {
                 size={15}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
-            </a>
+            </Link>
           </Reveal>
         </div>
 
@@ -72,7 +73,7 @@ export default function Pricing() {
                     {bundle.copy}
                   </p>
 
-                  <a
+                  <Link
                     href="/shop"
                     className={`mt-4 flex h-[43px] w-full items-center justify-center rounded-full text-[15px] transition-colors ${
                       featured
@@ -81,7 +82,7 @@ export default function Pricing() {
                     }`}
                   >
                     Shop {bundle.name}
-                  </a>
+                  </Link>
                 </div>
 
                 <div className="mt-8">

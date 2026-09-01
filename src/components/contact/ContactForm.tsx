@@ -24,9 +24,16 @@ export default function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-[28px] border border-[#8e4521]/10 bg-white p-6 shadow-[0_24px_70px_rgba(83,40,20,0.06)] md:rounded-[34px] md:p-9 lg:p-11"
+      className="rounded-[28px] border border-[#8e4521]/8 bg-white p-6 shadow-[0_24px_70px_rgba(83,40,20,0.05)] sm:p-8 md:rounded-[34px] lg:p-10"
     >
-      <div className="grid gap-5 sm:grid-cols-2">
+      <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-[#8e4521]/50">
+        Send a message
+      </p>
+      <h2 className="mt-2 text-[28px] font-medium tracking-[-0.035em] text-[#2f211b] md:text-[34px]">
+        Tell us what you need.
+      </h2>
+
+      <div className="mt-8 grid gap-5 sm:grid-cols-2">
         <label className="text-xs font-medium text-[#2f211b]">
           Your name
           <input
@@ -52,7 +59,7 @@ export default function ContactForm() {
       </div>
 
       <label className="mt-5 block text-xs font-medium text-[#2f211b]">
-        How can we help?
+        What can we help with?
         <select
           name="topic"
           defaultValue="Product guidance"
@@ -71,26 +78,28 @@ export default function ContactForm() {
         <textarea
           required
           name="message"
-          rows={6}
+          rows={4}
           placeholder="Tell us what you and your pet need help with."
           className="mt-2 w-full resize-none rounded-xl border border-[#8e4521]/10 bg-[#fffaf7] px-4 py-3 text-sm font-normal leading-6 outline-none transition-colors placeholder:text-[#6d5144]/40 focus:border-[#8e4521]/30 focus:bg-white"
         />
       </label>
 
-      <button
-        type="submit"
-        className="group mt-6 inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#8e4521] px-6 text-sm font-medium text-white shadow-[0_14px_30px_rgba(105,49,23,0.16)] transition-colors hover:bg-[#733616] sm:w-auto"
-      >
-        Send message
-        <ArrowUpRight
-          size={15}
-          className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-        />
-      </button>
+      <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <button
+          type="submit"
+          className="group inline-flex h-12 w-full shrink-0 items-center justify-center gap-2 rounded-full bg-[#8e4521] px-6 text-sm font-medium text-white shadow-[0_14px_30px_rgba(105,49,23,0.16)] transition-colors hover:bg-[#733616] sm:w-auto"
+        >
+          Send message
+          <ArrowUpRight
+            size={15}
+            className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </button>
 
-      <p className="mt-4 text-xs font-light leading-5 text-[#6d5144]/55">
-        This opens your email app with the message prepared for you.
-      </p>
+        <p className="text-xs font-light leading-5 text-[#6d5144]/50 sm:max-w-[230px] sm:text-right">
+          Opens your email app with the message prepared.
+        </p>
+      </div>
     </form>
   );
 }

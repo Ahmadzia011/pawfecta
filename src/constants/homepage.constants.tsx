@@ -52,14 +52,14 @@ export const HOMEPAGE_PRODUCT_CATEGORIES = [
     copy: "Gentle grooming essentials designed to keep coats clean, soft, comfortable, and beautifully cared for.",
     items: ["Shampoos", "Brushes", "Coat Care"],
     image: HOMEPAGE_MEDIA.categoryWellnessCat,
-    alt: "Freshly bathed golden retriever in a warm pet-care room",
+    alt: "Happy cat relaxing in a warm pet-care room",
   },
   {
     title: "Grooming Essentials",
     copy: "Comfortable, easy-to-use tools for keeping paws, faces, and coats neat between professional grooms.",
     items: ["Trimmers", "Combs", "Paw Care"],
     image: HOMEPAGE_MEDIA.categoryBathGoldenRetriever,
-    alt: "Happy cream cat relaxing beside wooden grooming tools",
+    alt: "Freshly bathed golden retriever in a warm pet-care room",
   },
   {
     title: "Everyday Wellness",

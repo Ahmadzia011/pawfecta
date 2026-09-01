@@ -2,7 +2,7 @@
 
 import { Minus, Plus } from "lucide-react";
 import { useState } from "react";
-import SectionIntro from "./SectionIntro";
+import SectionIntro from "../homepage/SectionIntro";
 import { HOMEPAGE_FAQS } from "../../constants/homepage.constants";
 import { Reveal } from "../motion/Reveal";
 
@@ -24,6 +24,8 @@ export default function FAQ() {
           <div className="space-y-3 md:space-y-4">
             {HOMEPAGE_FAQS.map(([question, answer], index) => {
               const isOpen = open === index;
+              const questionId = `faq-question-${index}`;
+              const answerId = `faq-answer-${index}`;
 
               return (
                 <Reveal
@@ -35,8 +37,10 @@ export default function FAQ() {
                   className="overflow-hidden rounded-2xl bg-[#fff8f4]"
                 >
                   <button
+                    id={questionId}
                     type="button"
                     aria-expanded={isOpen}
+                    aria-controls={answerId}
                     onClick={() => setOpen(isOpen ? null : index)}
                     className="flex min-h-[73px] w-full items-center justify-between gap-5 px-5 py-5 text-left md:px-6 md:py-6"
                   >
@@ -54,6 +58,10 @@ export default function FAQ() {
                   </button>
 
                   <div
+                    id={answerId}
+                    role="region"
+                    aria-labelledby={questionId}
+                    aria-hidden={!isOpen}
                     className={`grid transition-[grid-template-rows] duration-300 ease-out ${
                       isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                     }`}

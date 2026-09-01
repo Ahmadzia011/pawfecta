@@ -27,7 +27,6 @@ export default function Products() {
                   src={product.image}
                   alt={product.alt}
                   fill
-                  loading="eager"
                   sizes="(min-width: 1280px) 424px, (min-width: 1024px) 32vw, (min-width: 640px) 50vw, 100vw"
                   className="object-contain p-8 transition-transform duration-700 ease-out group-hover:scale-[1.035] md:p-10 lg:p-12"
                 />
@@ -35,7 +34,7 @@ export default function Products() {
                 <button
                   type="button"
                   aria-label={`Add ${product.name} to cart`}
-                  className="absolute bottom-4 right-4 z-10 flex size-11 items-center justify-center rounded-full bg-[#8e4521] text-white shadow-[0_10px_24px_rgba(80,40,20,0.16)] transition-all duration-300 hover:bg-[#733616] md:bottom-5 md:right-5 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100"
+                  className="absolute bottom-4 right-4 z-10 flex size-11 items-center justify-center rounded-full bg-[#8e4521] text-white shadow-[0_10px_24px_rgba(80,40,20,0.16)] transition-all duration-300 hover:bg-[#733616] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8e4521] md:bottom-5 md:right-5 md:translate-y-2 md:opacity-0 md:group-hover:translate-y-0 md:group-hover:opacity-100 md:group-focus-within:translate-y-0 md:group-focus-within:opacity-100"
                 >
                   <ShoppingBag size={16} strokeWidth={1.7} />
                 </button>

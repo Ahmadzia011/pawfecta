@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Menu, PawPrint, ShoppingBag, X } from "lucide-react";
+import { Show, UserButton } from "@clerk/nextjs";
+import { ArrowUpRight, Menu, PawPrint, X } from "lucide-react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -25,7 +26,7 @@ export default function Navbar() {
         initial={shouldReduceMotion ? false : { opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.75, ease: PREMIUM_EASE }}
-        className="relative mx-auto max-w-360 rounded-[22px] border border-white/55 bg-white/68 shadow-[0_10px_35px_rgba(73,33,16,0.07)] backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-500"
+        className="relative mx-auto max-w-360 rounded-[22px] border border-white/55 bg-white/68 shadow-[0_10px_35px_rgba(73,33,16,0.07)] backdrop-blur-xl transition-[background-color,border-color,box-shadow] duration-500 md:border-0 md:bg-transparent md:shadow-none md:backdrop-blur-none"
       >
         <div className="flex h-20 items-center justify-between px-3 pl-4 md:px-4 md:pl-5">
           <Link
@@ -67,18 +68,20 @@ export default function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            <Link
-              href="/shop"
-              className="group hidden h-11 items-center gap-2.5 rounded-full bg-[#8e4521] pl-4 pr-2 text-[13px] font-medium text-white shadow-[0_10px_24px_rgba(91,43,21,0.2)] transition-colors hover:bg-[#733616] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#8e4521] sm:flex"
-            >
-              Shop now
-              <span className="flex size-7 items-center justify-center rounded-full bg-white/12">
-                <ArrowUpRight
-                  size={14}
-                  className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                />
-              </span>
-            </Link>
+            <Show when="signed-out">
+              <Link
+                href="/sign-in"
+                className="group hidden h-11 items-center gap-2.5 rounded-full bg-[#8e4521] px-7 text-base font-normal text-white shadow-[0_10px_24px_rgba(91,43,21,0.2)] transition-colors hover:bg-[#733616] focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#8e4521] sm:flex"
+              >
+                Sign in
+              </Link>
+            </Show>
+
+            <Show when="signed-in">
+              <div className="hidden h-11 items-center rounded-full bg-white/75 px-1.5 shadow-[0_8px_20px_rgba(91,43,21,0.1)] sm:flex">
+                <UserButton />
+              </div>
+            </Show>
 
             <button
               type="button"
@@ -139,14 +142,22 @@ export default function Navbar() {
                   })}
                 </div>
 
-                <Link
-                  href="/shop"
-                  onClick={closeMenu}
-                  className="mt-3 flex h-12 items-center justify-center gap-2 rounded-full bg-[#8e4521] text-sm font-medium text-white sm:hidden"
-                >
-                  <ShoppingBag size={16} />
-                  Shop the collection
-                </Link>
+                <Show when="signed-out">
+                  <Link
+                    href="/sign-in"
+                    onClick={closeMenu}
+                    className="mt-3 flex h-12 items-center justify-center gap-2 rounded-full bg-[#8e4521] text-sm font-medium text-white sm:hidden"
+                  >
+                    Sign in
+                    <ArrowUpRight size={15} />
+                  </Link>
+                </Show>
+
+                <Show when="signed-in">
+                  <div className="mt-3 flex min-h-12 items-center justify-center rounded-full bg-[#fff8f4] sm:hidden">
+                    <UserButton showName />
+                  </div>
+                </Show>
               </div>
             </motion.nav>
           )}

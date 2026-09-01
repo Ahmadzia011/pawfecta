@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { FEATURED_PRODUCTS } from "../../constants/shop.constants";
 import { Reveal } from "../motion/Reveal";
@@ -18,7 +19,7 @@ export default function FeaturedProducts() {
           />
 
           <Reveal delay={0.22} distance={14} scale={0.98}>
-            <a
+            <Link
               href="/shop"
               className="group inline-flex h-11 shrink-0 items-center gap-2 rounded-full border border-[#8e4521]/20 px-5 text-sm font-medium text-[#8e4521] transition-colors hover:border-[#8e4521]/40 hover:bg-[#fff8f4] md:mb-1"
             >
@@ -27,7 +28,7 @@ export default function FeaturedProducts() {
                 size={15}
                 className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               />
-            </a>
+            </Link>
           </Reveal>
         </div>
 
@@ -42,14 +43,13 @@ export default function FeaturedProducts() {
               hoverLift
               className="group"
             >
-              <a href="/shop" aria-label={`Shop ${product.name}`}>
+              <Link href="/shop" aria-label={`Shop ${product.name}`}>
                 <div className="relative aspect-square overflow-hidden rounded-[28px] border border-[#8e4521]/8 bg-[#fff8f4] md:rounded-[32px]">
                   <Image
-                  loading="eager"
-                  src={product.image}
-                  alt={product.alt}
-                  fill
-                  sizes="(min-width: 1280px) 430px, (min-width: 768px) 32vw, 100vw"
+                    src={product.image}
+                    alt={product.alt}
+                    fill
+                    sizes="(min-width: 1280px) 430px, (min-width: 768px) 32vw, 100vw"
                     className="object-contain p-10 transition-transform duration-700 ease-out group-hover:scale-[1.035] md:p-8 lg:p-12"
                   />
                 </div>
@@ -75,7 +75,7 @@ export default function FeaturedProducts() {
                     </span>
                   </div>
                 </div>
-              </a>
+              </Link>
             </Reveal>
           ))}
         </div>

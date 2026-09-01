@@ -60,7 +60,11 @@ export default function Testimonials() {
                 }}
               >
                 {[0, 1].map((group) => (
-                  <div key={group} className="flex flex-col gap-4">
+                  <div
+                    key={group}
+                    aria-hidden={group === 1}
+                    className="flex flex-col gap-4"
+                  >
                     {HOMEPAGE_TESTIMONIALS.map((review, index) => (
                       <article
                         key={`${group}-${review.name}-${index}`}

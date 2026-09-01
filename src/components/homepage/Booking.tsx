@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import {
   HOMEPAGE_IMAGES,
   HOMEPAGE_SHOPPING_NEEDS,
@@ -79,12 +80,12 @@ export default function Booking() {
                   Get product recommendations
                 </button>
 
-                <a
+                <Link
                   href="/shop"
                   className="flex h-[50px] w-full items-center justify-center rounded-full bg-white/60 text-sm font-semibold text-[#1d1d1f] transition-[color,background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-white"
                 >
                   Shop all products
-                </a>
+                </Link>
               </div>
             </form>
           </Reveal>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import localFont from "next/font/local";
 import "./globals.css";
 import LenisScroll from "../lib/lenisScroll";
@@ -50,7 +51,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${excon.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <LenisScroll>{children}</LenisScroll>
+        <ClerkProvider
+          signInFallbackRedirectUrl="/shop"
+          signUpFallbackRedirectUrl="/shop"
+        >
+          <LenisScroll />
+          {children}
+        </ClerkProvider>
       </body>
     </html>
   );

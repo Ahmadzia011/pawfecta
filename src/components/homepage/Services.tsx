@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import SectionIntro from "./SectionIntro";
 import { HOMEPAGE_PRODUCT_CATEGORIES } from "../../constants/homepage.constants";
 import { Reveal } from "../motion/Reveal";
@@ -75,16 +76,20 @@ export default function Services() {
                         {category.items.join(" · ")}
                       </p>
 
-                      <span className="shrink-0 text-[12px] font-medium text-[#8e4521]">
+                      <Link
+                        href="/shop"
+                        className="shrink-0 text-[12px] font-medium text-[#8e4521] transition-opacity hover:opacity-65 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8e4521]"
+                      >
                         Explore →
-                      </span>
+                      </Link>
                     </div>
                   </div>
 
                   {/* Image */}
                   <div
                     className={`
-                      relative overflow-hidden rounded-[22px]
+                      relative h-[260px] overflow-hidden rounded-[22px]
+                      sm:h-[320px] lg:h-auto
                       ${
                         index % 2 === 0
                           ? "lg:order-1"

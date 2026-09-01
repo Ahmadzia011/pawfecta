@@ -2,12 +2,20 @@ import Navbar from "@/src/components/UI/Navbar";
 import Footer from "@/src/components/UI/Footer";
 import { SHOP_PRODUCTS } from "@/src/constants/shop.constants";
 import Products from "./products";
+import FAQ from "@/src/components/UI/FAQ";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Shop Pawfecta | Thoughtful Pet Essentials",
+  description:
+    "Shop Pawfecta essentials for pet grooming, comfort, play, feeding, travel, and everyday care.",
+};
 
 export default function ShopPage() {
   return (
     <>
       <Navbar />
-      <main className="bg-[#fffaf7]">
+      <main className="bg-[#fffaf7] pt-10">
         <section className="pt-32 md:pt-44">
           <div className="page-container border-b border-[#8e4521]/12 pb-12 md:pb-16">
             <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_340px] lg:items-end lg:gap-16">
@@ -36,6 +44,9 @@ export default function ShopPage() {
         </section>
         <Products />
       </main>
+      <div className="bg-white pt-20 md:pt-28">
+        <FAQ />
+      </div>
       <Footer />
     </>
   );

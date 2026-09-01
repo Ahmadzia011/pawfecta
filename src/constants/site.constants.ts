@@ -1,8 +1,7 @@
 export const SITE_NAV_LINKS = [
   ["Home", "/"],
   ["Shop", "/shop"],
-  ["About", "/#about"],
-  ["Contact us", "/contact"],
+  ["Contact", "/contact"],
 ] as const;
 
 export const SITE_CONTACT = {

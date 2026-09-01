@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 import { HOMEPAGE_IMAGES } from "../../constants/homepage.constants";
@@ -12,9 +13,9 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="bg-white px-4 pb-4 pt-24 md:px-8 md:pb-8 md:pt-36"
+      className="bg-white px-4 pb-4 pt-28 md:px-8 md:pb-8 md:pt-36"
     >
-      <div className="relative mx-auto min-h-[880px] max-w-360 overflow-hidden rounded-[30px] bg-[#f8e5d7] md:min-h-[740px] md:rounded-[38px]">
+      <div className="relative mx-auto min-h-[800px] max-w-360 overflow-hidden rounded-[30px] bg-[#f8e5d7] sm:min-h-[840px] md:min-h-[740px] md:rounded-[38px]">
         {/* Ambient background */}
         <div className="pointer-events-none absolute left-[42%] top-[38%] h-[420px] w-[420px] rounded-full bg-white/35 blur-[100px]" />
 
@@ -39,7 +40,7 @@ export default function Hero() {
             delay: 0.15,
             ease: PREMIUM_EASE,
           }}
-          className="pointer-events-none absolute bottom-[-1%] right-[-6%] z-20 h-[39%] w-[100%] sm:right-[-2%] sm:h-[46%] sm:w-[86%] md:bottom-[-3%] md:right-[-2%] md:h-[91%] md:w-[57%] lg:right-[1%] lg:w-[53%]"
+          className="pointer-events-none absolute bottom-[-1%] right-[-8%] z-20 h-[34%] w-[112%] sm:right-[-2%] sm:h-[44%] sm:w-[84%] md:bottom-[-3%] md:right-[-2%] md:h-[91%] md:w-[57%] lg:right-[3%] lg:w-[53%]"
         >
           <Image
             src={HOMEPAGE_IMAGES.hero.src}
@@ -52,7 +53,7 @@ export default function Hero() {
         </motion.div>
 
         {/* Content */}
-        <div className="relative z-30 flex min-h-[880px] flex-col px-7 py-8 md:min-h-[740px] md:px-14 md:py-12 lg:px-16">
+        <div className="relative z-30 flex min-h-[800px] flex-col px-5 py-7 sm:min-h-[840px] sm:px-8 sm:py-8 md:min-h-[740px] md:px-14 md:py-12 lg:px-16">
           {/* Eyebrow */}
           <motion.div
             initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
@@ -62,8 +63,8 @@ export default function Hero() {
               ease: PREMIUM_EASE,
             }}
           >
-            <p className="flex items-center gap-3 text-[11px] font-medium uppercase tracking-[0.16em] text-[#8e4521] md:text-xs">
-              <span className="h-px w-7 bg-[#8e4521]/50" />
+            <p className="flex items-center gap-2.5 text-[10px] font-medium uppercase tracking-[0.14em] text-[#8e4521] sm:gap-3 sm:text-[11px] sm:tracking-[0.16em] md:text-xs">
+              <span className="h-px w-5 bg-[#8e4521]/50 sm:w-7" />
               Curated for happier pets
             </p>
           </motion.div>
@@ -87,12 +88,12 @@ export default function Hero() {
               delay: 0.12,
               ease: PREMIUM_EASE,
             }}
-            className="mt-14 max-w-[650px] md:mt-20 md:max-w-[52%]"
+            className="mt-10 max-w-[650px] sm:mt-14 md:mt-20 md:max-w-[52%]"
           >
             <h1
               className="
                 max-w-[620px]
-                text-[49px] font-medium
+                text-[clamp(2.25rem,11.4vw,3.05rem)] font-medium
                 leading-[0.94]
                 tracking-[-0.055em]
                 text-[#8e4521]
@@ -102,36 +103,34 @@ export default function Hero() {
                 md:text-[clamp(3.5rem,5.6vw,5.4rem)]
               "
             >
-              Beautiful things,
-              <br />
-              for their
-              <br />
-              best life.
+              <span className="block whitespace-nowrap">Beautiful things,</span>
+              <span className="block whitespace-nowrap">for their</span>
+              <span className="block whitespace-nowrap">best life.</span>
             </h1>
 
-            <p className="mt-7 max-w-[420px] text-[15px] font-light leading-[1.7] text-[#3f2b22]/70 md:mt-8 md:text-[17px]">
+            <p className="mt-5 max-w-[420px] text-[15px] font-light leading-[1.65] text-[#3f2b22]/70 sm:mt-7 sm:leading-[1.7] md:mt-8 md:text-[17px]">
               Thoughtful essentials made for better routines, softer moments,
               and a little more joy every day.
             </p>
 
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center md:mt-8">
-              <a
+            <div className="mt-6 flex flex-col gap-2.5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 md:mt-8">
+              <Link
                 href="/shop"
-                className="group inline-flex h-[50px] w-full items-center justify-center gap-3 rounded-full bg-[#8e4521] px-6 text-sm font-medium text-white shadow-[0_16px_34px_rgba(105,49,23,0.2)] transition-colors hover:bg-[#773817] sm:w-auto"
+                className="group inline-flex h-12 w-full items-center justify-center gap-3 rounded-full bg-[#8e4521] px-6 text-sm font-medium text-white shadow-[0_16px_34px_rgba(105,49,23,0.2)] transition-colors hover:bg-[#773817] sm:h-[50px] sm:w-auto"
               >
                 Shop the collection
                 <ArrowUpRight
                   size={16}
                   className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="/contact"
-                className="inline-flex h-[50px] w-full items-center justify-center rounded-full border border-[#8e4521]/35 px-6 text-sm font-medium text-[#8e4521] transition-colors hover:border-[#8e4521] hover:bg-white/50 sm:w-auto"
+                className="inline-flex h-12 w-full items-center justify-center rounded-full border border-[#8e4521]/35 px-6 text-sm font-medium text-[#8e4521] transition-colors hover:border-[#8e4521] hover:bg-white/50 sm:h-[50px] sm:w-auto"
               >
                 Contact us
-              </a>
+              </Link>
             </div>
           </motion.div>
 

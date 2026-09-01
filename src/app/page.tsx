@@ -7,7 +7,7 @@ import Pricing from "../components/homepage/Pricing";
 import HowItWorks from "../components/homepage/HowItWorks";
 import Booking from "../components/homepage/Booking";
 import Testimonials from "../components/homepage/Testimonials";
-import FAQ from "../components/homepage/FAQ";
+import FAQ from "../components/UI/FAQ";
 import Footer from "../components/UI/Footer";
 import FeaturedProducts from "../components/homepage/FeaturedProducts";
 
