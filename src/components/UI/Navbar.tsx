@@ -78,7 +78,7 @@ export default function Navbar() {
             </Show>
 
             <Show when="signed-in">
-              <div className="hidden h-11 items-center rounded-full bg-white/75 px-1.5 shadow-[0_8px_20px_rgba(91,43,21,0.1)] sm:flex">
+              <div className="hidden h-11 items-center rounded-full px-1.5 sm:flex">
                 <UserButton />
               </div>
             </Show>
@@ -105,7 +105,7 @@ export default function Navbar() {
               animate={{ height: "auto", opacity: 1 }}
               exit={{ height: 0, opacity: 0 }}
               transition={{ duration: 0.35, ease: PREMIUM_EASE }}
-              className="overflow-hidden lg:hidden"
+              className="overflow-hidden rounded-b-[22px] border-x border-b border-[#8e4521]/10 bg-[#fffaf7] shadow-[0_18px_36px_rgba(73,33,16,0.12)] lg:hidden"
             >
               <div className="mx-3 border-t border-[#8e4521]/10 px-1 pb-4 pt-3">
                 <div className="grid gap-1 sm:grid-cols-2">
@@ -128,7 +128,7 @@ export default function Navbar() {
                           className={`flex items-center justify-between rounded-2xl px-4 py-3 text-[15px] font-medium transition-colors ${
                             isActive
                               ? "bg-[#f8e5d7] text-[#8e4521]"
-                              : "text-[#5f3927] hover:bg-[#f8e5d7]/75"
+                              : "text-[#4f3023] hover:bg-[#f8e5d7] hover:text-[#8e4521]"
                           }`}
                         >
                           {label}

@@ -1,17 +1,17 @@
 import Navbar from "@/src/components/UI/Navbar";
 import Footer from "@/src/components/UI/Footer";
-import { SHOP_PRODUCTS } from "@/src/constants/shop.constants";
 import Products from "./products";
 import FAQ from "@/src/components/UI/FAQ";
-import type { Metadata } from "next";
+import Supabase from "@/src/lib/supabase";
 
-export const metadata: Metadata = {
-  title: "Shop Pawfecta | Thoughtful Pet Essentials",
-  description:
-    "Shop Pawfecta essentials for pet grooming, comfort, play, feeding, travel, and everyday care.",
-};
 
-export default function ShopPage() {
+
+export default async function ShopPage() {
+  const supabase = Supabase();
+  const { data } = await supabase.from("products").select();
+
+  if (!data) return null;
+
   return (
     <>
       <Navbar />
@@ -35,14 +35,14 @@ export default function ShopPage() {
                   routines you share.
                 </p>
                 <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.12em] text-[#8e4521]/55">
-                  {String(SHOP_PRODUCTS.length).padStart(2, "0")} considered
-                  pieces
+                  {String(data.length).padStart(2, "0")} considered{" "}
+                  {data.length === 1 ? "piece" : "pieces"}
                 </p>
               </div>
             </div>
           </div>
         </section>
-        <Products />
+        <Products products={data} />
       </main>
       <div className="bg-white pt-20 md:pt-28">
         <FAQ />

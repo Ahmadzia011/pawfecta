@@ -24,7 +24,7 @@ export default function Services() {
                 key={category.title}
                 style={{
                   zIndex: index + 1,
-                  top: 110 + index * 12,
+                  top: 60 + index * 12,
                 }}
                 className="sticky"
               >

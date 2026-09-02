@@ -35,4 +35,4 @@ export const PRODUCT_MEDIA = {
   naturalPawBalm: productImage("natural-paw-balm.webp"),
   softPawCleanser: productImage("soft-paw-cleanser.webp"),
   travelWaterBowl: productImage("travel-water-bowl.webp"),
-} as const;
+};

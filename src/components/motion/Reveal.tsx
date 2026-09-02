@@ -65,11 +65,10 @@ export function Reveal({
   ...options
 }: RevealProps) {
   const revealProps = useRevealProps(options);
-  const MotionElement = as === "article" ? motion.article : motion.div;
 
   return (
-    <MotionElement className={className} style={style} {...revealProps}>
+    <motion.div className={className} style={style} {...revealProps}>
       {children}
-    </MotionElement>
+    </motion.div>
   );
 }
